@@ -1,11 +1,10 @@
+import {DefaultTransferOption} from '@features/airplane-tickets/lib/useAirplaneTickets';
 import {
 	AirplaneTicket,
+	Currency,
+	TransferOptionKey,
 	TransferPoint,
 } from '@features/airplane-tickets/model/types';
-import {
-	DefaultTransferOption,
-	TransferOptionKey,
-} from '@features/airplane-tickets/ui/airplane-tickets-filters';
 
 const getRandom = <T>(array: T[]) => {
 	return array[Math.floor(Math.random() * (array.length - 1))];
@@ -75,6 +74,7 @@ for (let i = 0; i < COUNT; i++) {
 	const arrivalDate = new Date(
 		departureDate.getTime() + Math.random() * 1000 * 3600 * 24
 	);
+	const rubPrice = 2000 + Math.floor(Math.random() * 10000);
 
 	tickets.push({
 		id: i,
@@ -93,13 +93,17 @@ for (let i = 0; i < COUNT; i++) {
 					new Date(transfer.date).getTime() > departureDate.getTime()
 			)
 			.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()),
-		price: 2000 + Math.floor(Math.random() * 10000),
+		price: {
+			amount: rubPrice,
+			currency: 'RUB',
+		},
 		imageUrl: getRandom(AIRLINE_LOGOS),
 	});
 }
 
 interface GetAirplaneTicketsOptions {
 	transferFilters?: TransferOptionKey[];
+	currency?: Currency;
 }
 
 const getAirplaneTicketsHandler: {
@@ -110,6 +114,12 @@ const getAirplaneTicketsHandler: {
 	'1-transfer': (ticket) => ticket.transfers.length === 1,
 	'2-transfers': (ticket) => ticket.transfers.length === 2,
 	'3-transfers': (ticket) => ticket.transfers.length === 3,
+};
+
+const currencyConverter = {
+	RUB: 1,
+	USD: 62,
+	EUR: 63,
 };
 
 class Api {
@@ -136,7 +146,17 @@ class Api {
 			}
 		}
 
-		return ticketsRes.sort((a, b) => a.price - b.price);
+		if (options?.currency !== undefined) {
+			ticketsRes = ticketsRes.map((ticket) => ({
+				...ticket,
+				price: {
+					amount: ticket.price.amount / currencyConverter[options.currency],
+					currency: options.currency,
+				},
+			}));
+		}
+
+		return ticketsRes.sort((a, b) => a.price.amount - b.price.amount);
 	}
 }
 

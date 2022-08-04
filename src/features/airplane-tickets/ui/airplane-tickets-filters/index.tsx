@@ -7,53 +7,25 @@ import SelectableButton from '@components/SelectableButton';
 import {ButtonGroup} from '@mui/material';
 import React from 'react';
 
+import {currencies, transferOptions} from '../../lib/useAirplaneTickets';
+import {Currency, TransferOptionKey} from '../../model/types';
 import FilterSection from './filters-section';
 
 const cnAirplaneTicketsFilters = cn('AirplaneTicketsFilters');
 
-export type TransferOptionKey =
-	| 'all-transfers'
-	| '0-transfers'
-	| '1-transfer'
-	| '2-transfers'
-	| '3-transfers';
-
-export const DefaultTransferOption: TransferOptionKey = 'all-transfers';
-
-const transferOptions: {name: string; key: TransferOptionKey}[] = [
-	{
-		name: 'All',
-		key: 'all-transfers',
-	},
-	{
-		name: 'No transfers',
-		key: '0-transfers',
-	},
-	{
-		name: '1 transfer',
-		key: '1-transfer',
-	},
-	{
-		name: '2 transfers',
-		key: '2-transfers',
-	},
-	{
-		name: '3 transfers',
-		key: '3-transfers',
-	},
-];
-
 interface AirplaneTicketsFiltersProps {
+	selectedCurrency: Currency;
+	onCurrencyChange: (currency: Currency) => void;
 	selectedTransferFilters: TransferOptionKey[];
 	onTransferFiltersChange: (key: TransferOptionKey) => void;
 }
 
 const AirplaneTicketsFilters: React.FC<AirplaneTicketsFiltersProps> = ({
+	selectedCurrency,
+	onCurrencyChange,
 	selectedTransferFilters,
 	onTransferFiltersChange,
 }) => {
-	const currencies = ['USD', 'RUB', 'EUR'];
-
 	return (
 		<Grid
 			container
@@ -65,7 +37,13 @@ const AirplaneTicketsFilters: React.FC<AirplaneTicketsFiltersProps> = ({
 			<FilterSection title="Currency">
 				<ButtonGroup fullWidth>
 					{currencies.map((currency) => (
-						<Button key={currency}>{currency}</Button>
+						<Button
+							key={currency}
+							variant={selectedCurrency === currency ? 'contained' : undefined}
+							onClick={() => onCurrencyChange(currency)}
+						>
+							{currency}
+						</Button>
 					))}
 				</ButtonGroup>
 			</FilterSection>

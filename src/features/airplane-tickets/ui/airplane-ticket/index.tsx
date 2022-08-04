@@ -3,11 +3,12 @@ import './styles.scss';
 import {cn} from '@bem-react/classname';
 import Button from '@components/Button';
 import Grid from '@components/Grid';
-import {AirplaneTicket} from '@features/airplane-tickets/model/types';
-import AirplaneTicketTime from '@features/airplane-tickets/ui/airplane-ticket-time';
-import AirplaneTicketTransfers from '@features/airplane-tickets/ui/airplane-ticket-transfers';
 import trim from '@shared/lib/utils/trim';
 import React from 'react';
+
+import {AirplaneTicket} from '../../model/types';
+import AirplaneTicketTime from '../airplane-ticket-time';
+import AirplaneTicketTransfers from '../airplane-ticket-transfers';
 
 interface AirplaneTicketProps {
 	ticket: AirplaneTicket;
@@ -34,7 +35,7 @@ const AirplaneTicket: React.FC<AirplaneTicketProps> = ({ticket}) => {
 						<Button fullWidth variant="contained">
 							Buy
 							<br />
-							for {ticket.price} RUB
+							for {Math.floor(ticket.price.amount)} {ticket.price.currency}
 						</Button>
 					</Grid>
 				</Grid>

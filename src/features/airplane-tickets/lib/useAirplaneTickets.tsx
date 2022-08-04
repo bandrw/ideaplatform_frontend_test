@@ -2,15 +2,40 @@ import {api} from '@shared/api';
 import {useQuery} from '@tanstack/react-query';
 import {useCallback, useState} from 'react';
 
-import {
-	DefaultTransferOption,
-	TransferOptionKey,
-} from '../ui/airplane-tickets-filters';
+import {Currency, TransferOptionKey} from '../model/types';
+
+export const DefaultTransferOption: TransferOptionKey = 'all-transfers';
+
+export const transferOptions: {name: string; key: TransferOptionKey}[] = [
+	{
+		name: 'All',
+		key: 'all-transfers',
+	},
+	{
+		name: 'No transfers',
+		key: '0-transfers',
+	},
+	{
+		name: '1 transfer',
+		key: '1-transfer',
+	},
+	{
+		name: '2 transfers',
+		key: '2-transfers',
+	},
+	{
+		name: '3 transfers',
+		key: '3-transfers',
+	},
+];
+
+export const currencies: Currency[] = ['USD', 'RUB', 'EUR'];
 
 export const useAirplaneTickets = () => {
 	const [selectedTransferFilters, setSelectedTransferFilters] = useState<
 		TransferOptionKey[]
 	>([DefaultTransferOption]);
+	const [selectedCurrency, setSelectedCurrency] = useState<Currency>('RUB');
 
 	const onTransferFiltersChange = useCallback((key: TransferOptionKey) => {
 		setSelectedTransferFilters((prevState) => {
@@ -33,13 +58,19 @@ export const useAirplaneTickets = () => {
 	}, []);
 
 	const {data, isLoading, isError} = useQuery(
-		['airplaneTickets', selectedTransferFilters],
-		() => api.getAirplaneTickets({transferFilters: selectedTransferFilters})
+		['airplaneTickets', selectedTransferFilters, selectedCurrency],
+		() =>
+			api.getAirplaneTickets({
+				transferFilters: selectedTransferFilters,
+				currency: selectedCurrency,
+			})
 	);
 
 	return {
 		selectedTransferFilters,
 		onTransferFiltersChange,
+		selectedCurrency,
+		onCurrencyChange: setSelectedCurrency,
 		isLoading,
 		isError,
 		airplaneTickets: data,

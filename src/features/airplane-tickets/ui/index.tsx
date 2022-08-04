@@ -10,8 +10,13 @@ import React from 'react';
 const cnAirplaneTickets = cn('AirplaneTickets');
 
 const AirplaneTickets: React.FC = () => {
-	const {airplaneTickets, selectedTransferFilters, onTransferFiltersChange} =
-		useAirplaneTickets();
+	const {
+		airplaneTickets,
+		selectedTransferFilters,
+		onTransferFiltersChange,
+		selectedCurrency,
+		onCurrencyChange,
+	} = useAirplaneTickets();
 
 	return (
 		<Grid
@@ -24,6 +29,8 @@ const AirplaneTickets: React.FC = () => {
 		>
 			<Grid item>
 				<AirplaneTicketsFilters
+					selectedCurrency={selectedCurrency}
+					onCurrencyChange={onCurrencyChange}
 					selectedTransferFilters={selectedTransferFilters}
 					onTransferFiltersChange={onTransferFiltersChange}
 				/>

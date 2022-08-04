@@ -1,3 +1,12 @@
+export type Currency = 'USD' | 'RUB' | 'EUR';
+
+export type TransferOptionKey =
+	| 'all-transfers'
+	| '0-transfers'
+	| '1-transfer'
+	| '2-transfers'
+	| '3-transfers';
+
 export interface TransferPoint {
 	id: number | string;
 	airportName: string;
@@ -9,6 +18,9 @@ export interface AirplaneTicket {
 	departure: Omit<TransferPoint, 'id'>;
 	arrival: Omit<TransferPoint, 'id'>;
 	transfers: TransferPoint[];
-	price: number;
+	price: {
+		amount: number;
+		currency: Currency;
+	};
 	imageUrl: string;
 }
