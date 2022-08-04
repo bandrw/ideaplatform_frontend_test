@@ -1,0 +1,28 @@
+[
+	{
+		"id": 0,
+		"departure": {
+			"airportName": "Казань, KZN",
+			"date": "2022-08-03T17:00:00.000Z"
+		},
+		"arrival": {
+			"airportName":  "Москва, VKO",
+			"date":  "2022-08-03T18:30:00.000Z"
+		},
+		"transfers": [],
+		"price": 2600
+	},
+	{
+		"id": 1,
+		"departure": {
+			"airportName": "Казань, KZN",
+			"date": "2022-08-03T17:00:00.000Z"
+		},
+		"arrival": {
+			"airportName":  "Москва, VKO",
+			"date":  "2022-08-03T18:30:00.000Z"
+		},
+		"transfers": [],
+		"price": 21032
+	}
+]

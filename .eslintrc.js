@@ -56,6 +56,7 @@ module.exports = {
 		'import/extensions': 0,
 		'object-curly-spacing': ['error', 'never'],
 		'react/no-array-index-key': 0,
+		'react/jsx-key': 2,
 		'react/jsx-indent': [
 			'error',
 			'tab',
@@ -89,6 +90,7 @@ module.exports = {
 		'jsx-a11y/click-events-have-key-events': 0,
 		'consistent-return': 0,
 		'no-nested-ternary': 0,
+		'no-plusplus': 0,
 	},
 	settings: {
 		'import/resolver': {

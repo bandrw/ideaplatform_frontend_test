@@ -1,0 +1,37 @@
+.AirplaneTicketTransfers {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&-TransferInfo {
+		font-size: 0.9rem;
+	}
+
+	&-LabelContainer {
+		min-height: 36px;
+	}
+
+	&-Logo {
+		height: 24px;
+		width: 200px;
+		position: relative;
+
+		&-Line {
+			position: absolute;
+			left: 0;
+			right: 25px;
+			top: 11px;
+			height: 1px;
+			background: var(--color-gray);
+		}
+
+		&-Plane {
+			font-size: 0.9rem;
+			color: var(--color-gray);
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: rotate(90deg);
+		}
+	}
+}

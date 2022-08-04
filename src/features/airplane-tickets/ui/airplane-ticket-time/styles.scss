@@ -1,0 +1,20 @@
+.AirplaneTicketTime {
+	min-width: 150px;
+
+	&_align_left {
+		text-align: left;
+	}
+
+	&_align_right {
+		text-align: right;
+	}
+
+	&-Time {
+		font-size: 2rem;
+	}
+
+	&-Date {
+		font-size: 0.9rem;
+		color: var(--color-gray);
+	}
+}

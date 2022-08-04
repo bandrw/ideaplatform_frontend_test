@@ -1,0 +1,33 @@
+.AirplaneTicket {
+	min-width: 700px;
+	padding: 25px;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0 10px 25px;
+
+	&-BuySection {
+		width: 200px;
+
+		&-Image {
+			background-position: center;
+			background-size: 70%;
+			background-repeat: no-repeat;
+			height: 50px;
+		}
+	}
+
+	&-Info {
+		width: calc(100% - 216px)
+	}
+
+	&-Departure, &-Arrival {
+		width: 40%;
+	}
+
+	&-Departure {
+		border: 1px solid red;
+	}
+
+	&-Arrival {
+		border: 1px solid green;
+	}
+}
