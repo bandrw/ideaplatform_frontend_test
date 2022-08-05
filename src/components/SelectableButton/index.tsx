@@ -22,7 +22,7 @@ const SelectableButton: React.FC<SelectableButtonProps> = ({
 							sx={{
 								marginBottom: '-5px',
 								fontSize: '1.2rem',
-								color: 'var(--color-action)',
+								color: 'var(--color-primary)',
 							}}
 						/>
 					) : null}

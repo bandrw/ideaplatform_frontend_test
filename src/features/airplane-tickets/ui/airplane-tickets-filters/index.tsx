@@ -1,10 +1,10 @@
 import './styles.scss';
 
 import {cn} from '@bem-react/classname';
-import Button from '@components/Button';
 import Grid from '@components/Grid';
 import SelectableButton from '@components/SelectableButton';
-import {ButtonGroup} from '@mui/material';
+import ToggleButton from '@components/ToggleButton';
+import {ToggleButtonGroup} from '@mui/material';
 import React from 'react';
 
 import {currencies, transferOptions} from '../../lib/useAirplaneTickets';
@@ -35,17 +35,22 @@ const AirplaneTicketsFilters: React.FC<AirplaneTicketsFiltersProps> = ({
 			width={250}
 		>
 			<FilterSection title="Currency">
-				<ButtonGroup fullWidth>
+				<ToggleButtonGroup
+					color="primary"
+					exclusive
+					value={selectedCurrency}
+					fullWidth
+				>
 					{currencies.map((currency) => (
-						<Button
+						<ToggleButton
 							key={currency}
-							variant={selectedCurrency === currency ? 'contained' : undefined}
+							value={currency}
 							onClick={() => onCurrencyChange(currency)}
 						>
 							{currency}
-						</Button>
+						</ToggleButton>
 					))}
-				</ButtonGroup>
+				</ToggleButtonGroup>
 			</FilterSection>
 			<FilterSection title="Transfers">
 				<Grid container direction="column">

@@ -4,8 +4,8 @@ import React from 'react';
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: '#ff6f32',
-			dark: '#ff521f',
+			main: '#24a0ed',
+			dark: '#2594d9',
 			contrastText: '#ffffff',
 		},
 	},

@@ -5,25 +5,22 @@ import React, {useEffect} from 'react';
 
 interface PageProps {
 	children: React.ReactNode;
-	title: string;
+	title?: string;
 }
 
 const Page: React.FC<PageProps> = ({children, title}) => {
 	useEffect(() => {
-		document.title = title;
+		if (title !== undefined) document.title = title;
 	}, [title]);
 
 	return (
-		<Grid
-			container
-			direction="column"
-			minHeight="100vh"
-			justifyContent="space-between"
-		>
+		<Grid container direction="column">
 			<Grid item>
 				<Header />
 			</Grid>
-			<Grid item>{children}</Grid>
+			<Grid item height="calc(100vh - 80px - 40px)" overflow="scroll">
+				{children}
+			</Grid>
 			<Grid item>
 				<Footer />
 			</Grid>

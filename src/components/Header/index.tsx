@@ -16,7 +16,7 @@ const Header: React.FC = () => {
 			justifyContent="center"
 			alignItems="center"
 			className={cnHeader()}
-			spacing={1}
+			gap={1}
 		>
 			<Grid item>
 				<AirplaneTicketIcon

@@ -23,9 +23,9 @@ const AirplaneTicketTime: React.FC<AirplaneTicketTimeProps> = ({
 			container
 			direction="column"
 			className={cnAirplaneTicketTime({align})}
-			gap={0.5}
+			gap={1}
 		>
-			<Grid item className={cnAirplaneTicketTime('Time')}>
+			<Grid item className={cnAirplaneTicketTime('Time')} marginBottom={2}>
 				<Moment date={date} format="HH:MM" />
 			</Grid>
 			<Grid item className={cnAirplaneTicketTime('Location')}>

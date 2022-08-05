@@ -17,8 +17,9 @@ const Footer: React.FC = () => {
 			height={40}
 			justifyContent="center"
 			alignItems="center"
+			gap={1}
 		>
-			<Grid item marginRight={1}>
+			<Grid item>
 				<Grid container alignItems="center">
 					<GitHubIcon />
 				</Grid>

@@ -32,7 +32,16 @@ const AirplaneTicket: React.FC<AirplaneTicketProps> = ({ticket}) => {
 						/>
 					</Grid>
 					<Grid item>
-						<Button fullWidth variant="contained">
+						<Button
+							fullWidth
+							variant="contained"
+							sx={{
+								backgroundColor: 'var(--color-action)',
+								'&:hover': {
+									backgroundColor: 'var(--color-action-dark)',
+								},
+							}}
+						>
 							Buy
 							<br />
 							for {Math.floor(ticket.price.amount)} {ticket.price.currency}
@@ -41,7 +50,13 @@ const AirplaneTicket: React.FC<AirplaneTicketProps> = ({ticket}) => {
 				</Grid>
 			</Grid>
 			<Grid item className={cnAirplaneTicket('Info')}>
-				<Grid container gap={1} flexWrap="nowrap">
+				<Grid
+					container
+					gap={1}
+					flexWrap="nowrap"
+					alignItems="center"
+					height="100%"
+				>
 					<Grid item>
 						<AirplaneTicketTime
 							date={ticket.departure.date}
