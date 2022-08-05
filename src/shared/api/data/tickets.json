@@ -2,27 +2,623 @@
 	{
 		"id": 0,
 		"departure": {
-			"airportName": "Казань, KZN",
-			"date": "2022-08-03T17:00:00.000Z"
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-06T20:38:26.240Z"
 		},
 		"arrival": {
-			"airportName":  "Москва, VKO",
-			"date":  "2022-08-03T18:30:00.000Z"
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-06T22:00:26.862Z"
 		},
-		"transfers": [],
-		"price": 2600
+		"transfers": [
+			{
+				"id": 3,
+				"airportName": "VOZ, Voronezh",
+				"date": "2022-08-06T21:52:19.956Z"
+			}
+		],
+		"price": {
+			"amount": 7242,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
 	},
 	{
 		"id": 1,
 		"departure": {
-			"airportName": "Казань, KZN",
-			"date": "2022-08-03T17:00:00.000Z"
+			"airportName": "ZIA, Zhukovsky",
+			"date": "2022-08-07T08:11:13.427Z"
 		},
 		"arrival": {
-			"airportName":  "Москва, VKO",
-			"date":  "2022-08-03T18:30:00.000Z"
+			"airportName": "KLF, Kaluga",
+			"date": "2022-08-08T07:55:09.294Z"
 		},
 		"transfers": [],
-		"price": 21032
+		"price": {
+			"amount": 5647,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/emirates-logo.png"
+	},
+	{
+		"id": 2,
+		"departure": {
+			"airportName": "URJ, Uray",
+			"date": "2022-08-06T12:13:46.410Z"
+		},
+		"arrival": {
+			"airportName": "VKO, Vnukovo",
+			"date": "2022-08-07T03:31:41.064Z"
+		},
+		"transfers": [
+			{
+				"id": 0,
+				"airportName": "EZV, Beryozovo",
+				"date": "2022-08-06T23:40:12.628Z"
+			}
+		],
+		"price": {
+			"amount": 10028,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/s7-airlines-logo.png"
+	},
+	{
+		"id": 3,
+		"departure": {
+			"airportName": "URJ, Uray",
+			"date": "2022-08-07T04:33:37.114Z"
+		},
+		"arrival": {
+			"airportName": "ZIA, Zhukovsky",
+			"date": "2022-08-08T01:09:51.550Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 10892,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/turkish-airlines-logo.png"
+	},
+	{
+		"id": 4,
+		"departure": {
+			"airportName": "AAQ, Vityazevo",
+			"date": "2022-08-07T06:46:12.586Z"
+		},
+		"arrival": {
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-08T01:03:09.452Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 2860,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/turkish-airlines-logo.png"
+	},
+	{
+		"id": 5,
+		"departure": {
+			"airportName": "KLF, Kaluga",
+			"date": "2022-08-07T06:39:33.150Z"
+		},
+		"arrival": {
+			"airportName": "VKO, Vnukovo",
+			"date": "2022-08-07T17:03:47.468Z"
+		},
+		"transfers": [
+			{
+				"id": 1,
+				"airportName": "PEZ, Penza",
+				"date": "2022-08-07T08:34:14.355Z"
+			}
+		],
+		"price": {
+			"amount": 8859,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/emirates-logo.png"
+	},
+	{
+		"id": 6,
+		"departure": {
+			"airportName": "UFA, Ufa",
+			"date": "2022-08-07T08:28:28.169Z"
+		},
+		"arrival": {
+			"airportName": "VKO, Vnukovo",
+			"date": "2022-08-07T13:14:38.603Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 6454,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
+	},
+	{
+		"id": 7,
+		"departure": {
+			"airportName": "UFA, Ufa",
+			"date": "2022-08-07T05:20:54.661Z"
+		},
+		"arrival": {
+			"airportName": "VOZ, Voronezh",
+			"date": "2022-08-08T04:02:01.606Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 11906,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
+	},
+	{
+		"id": 8,
+		"departure": {
+			"airportName": "SKX, Saransk",
+			"date": "2022-08-06T17:04:40.028Z"
+		},
+		"arrival": {
+			"airportName": "VKO, Vnukovo",
+			"date": "2022-08-07T08:31:17.999Z"
+		},
+		"transfers": [
+			{
+				"id": 1,
+				"airportName": "KLF, Kaluga",
+				"date": "2022-08-06T18:50:56.002Z"
+			},
+			{
+				"id": 0,
+				"airportName": "OVS, Sovetsky",
+				"date": "2022-08-07T07:19:14.100Z"
+			}
+		],
+		"price": {
+			"amount": 10239,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/spirit-airlines-logo.png"
+	},
+	{
+		"id": 9,
+		"departure": {
+			"airportName": "AAQ, Vityazevo",
+			"date": "2022-08-06T19:30:20.662Z"
+		},
+		"arrival": {
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-07T11:43:31.571Z"
+		},
+		"transfers": [
+			{
+				"id": 0,
+				"airportName": "EZV, Beryozovo",
+				"date": "2022-08-06T19:54:15.366Z"
+			},
+			{
+				"id": 3,
+				"airportName": "URJ, Uray",
+				"date": "2022-08-06T21:21:10.561Z"
+			},
+			{
+				"id": 2,
+				"airportName": "SKX, Saransk",
+				"date": "2022-08-07T08:59:03.901Z"
+			}
+		],
+		"price": {
+			"amount": 8609,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/spirit-airlines-logo.png"
+	},
+	{
+		"id": 10,
+		"departure": {
+			"airportName": "VLI, Semyazino",
+			"date": "2022-08-07T08:37:18.503Z"
+		},
+		"arrival": {
+			"airportName": "AAQ, Vityazevo",
+			"date": "2022-08-08T05:21:14.315Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 11036,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
+	},
+	{
+		"id": 11,
+		"departure": {
+			"airportName": "AAQ, Vityazevo",
+			"date": "2022-08-06T13:49:04.340Z"
+		},
+		"arrival": {
+			"airportName": "URJ, Uray",
+			"date": "2022-08-07T09:41:45.093Z"
+		},
+		"transfers": [
+			{
+				"id": 0,
+				"airportName": "SKX, Saransk",
+				"date": "2022-08-06T17:12:08.729Z"
+			},
+			{
+				"id": 1,
+				"airportName": "PEZ, Penza",
+				"date": "2022-08-06T20:46:12.565Z"
+			},
+			{
+				"id": 2,
+				"airportName": "URJ, Uray",
+				"date": "2022-08-07T02:28:40.678Z"
+			}
+		],
+		"price": {
+			"amount": 10390,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
+	},
+	{
+		"id": 12,
+		"departure": {
+			"airportName": "PEZ, Penza",
+			"date": "2022-08-07T00:52:39.834Z"
+		},
+		"arrival": {
+			"airportName": "SKX, Saransk",
+			"date": "2022-08-07T06:07:12.411Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 11993,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/turkish-airlines-logo.png"
+	},
+	{
+		"id": 13,
+		"departure": {
+			"airportName": "KZN, Kazan",
+			"date": "2022-08-06T18:43:49.832Z"
+		},
+		"arrival": {
+			"airportName": "ZIA, Zhukovsky",
+			"date": "2022-08-07T15:52:00.589Z"
+		},
+		"transfers": [
+			{
+				"id": 0,
+				"airportName": "VOZ, Voronezh",
+				"date": "2022-08-07T06:39:28.226Z"
+			},
+			{
+				"id": 2,
+				"airportName": "UFA, Ufa",
+				"date": "2022-08-07T07:52:40.354Z"
+			}
+		],
+		"price": {
+			"amount": 5086,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/emirates-logo.png"
+	},
+	{
+		"id": 14,
+		"departure": {
+			"airportName": "KRO, Kurgan",
+			"date": "2022-08-07T04:14:09.532Z"
+		},
+		"arrival": {
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-07T15:01:24.019Z"
+		},
+		"transfers": [
+			{
+				"id": 3,
+				"airportName": "VOZ, Voronezh",
+				"date": "2022-08-07T04:42:39.816Z"
+			},
+			{
+				"id": 1,
+				"airportName": "AER, Sochi",
+				"date": "2022-08-07T06:24:39.061Z"
+			}
+		],
+		"price": {
+			"amount": 5594,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/s7-airlines-logo.png"
+	},
+	{
+		"id": 15,
+		"departure": {
+			"airportName": "AAQ, Vityazevo",
+			"date": "2022-08-07T07:00:12.933Z"
+		},
+		"arrival": {
+			"airportName": "URJ, Uray",
+			"date": "2022-08-07T21:04:51.293Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 8708,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/s7-airlines-logo.png"
+	},
+	{
+		"id": 16,
+		"departure": {
+			"airportName": "KLF, Kaluga",
+			"date": "2022-08-06T15:54:15.499Z"
+		},
+		"arrival": {
+			"airportName": "UFA, Ufa",
+			"date": "2022-08-06T19:13:38.430Z"
+		},
+		"transfers": [
+			{
+				"id": 0,
+				"airportName": "AAQ, Vityazevo",
+				"date": "2022-08-06T18:19:47.536Z"
+			}
+		],
+		"price": {
+			"amount": 10274,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/aeroflot-logo.png"
+	},
+	{
+		"id": 17,
+		"departure": {
+			"airportName": "OVS, Sovetsky",
+			"date": "2022-08-06T10:10:38.752Z"
+		},
+		"arrival": {
+			"airportName": "KRO, Kurgan",
+			"date": "2022-08-06T12:00:14.918Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 5321,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/turkish-airlines-logo.png"
+	},
+	{
+		"id": 18,
+		"departure": {
+			"airportName": "KLF, Kaluga",
+			"date": "2022-08-06T18:06:09.209Z"
+		},
+		"arrival": {
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-07T14:10:12.064Z"
+		},
+		"transfers": [
+			{
+				"id": 1,
+				"airportName": "PEZ, Penza",
+				"date": "2022-08-06T20:33:41.217Z"
+			},
+			{
+				"id": 0,
+				"airportName": "AAQ, Vityazevo",
+				"date": "2022-08-07T00:35:22.191Z"
+			}
+		],
+		"price": {
+			"amount": 9409,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
+	},
+	{
+		"id": 19,
+		"departure": {
+			"airportName": "VLI, Semyazino",
+			"date": "2022-08-07T03:28:51.842Z"
+		},
+		"arrival": {
+			"airportName": "URJ, Uray",
+			"date": "2022-08-08T00:51:30.681Z"
+		},
+		"transfers": [
+			{
+				"id": 0,
+				"airportName": "KLF, Kaluga",
+				"date": "2022-08-07T06:26:55.541Z"
+			}
+		],
+		"price": {
+			"amount": 4182,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/aeroflot-logo.png"
+	},
+	{
+		"id": 20,
+		"departure": {
+			"airportName": "KZN, Kazan",
+			"date": "2022-08-07T08:09:58.846Z"
+		},
+		"arrival": {
+			"airportName": "PEZ, Penza",
+			"date": "2022-08-08T04:00:43.617Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 11743,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
+	},
+	{
+		"id": 21,
+		"departure": {
+			"airportName": "OVS, Sovetsky",
+			"date": "2022-08-06T17:13:21.012Z"
+		},
+		"arrival": {
+			"airportName": "ZIA, Zhukovsky",
+			"date": "2022-08-06T19:07:44.650Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 5089,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/emirates-logo.png"
+	},
+	{
+		"id": 22,
+		"departure": {
+			"airportName": "UFA, Ufa",
+			"date": "2022-08-07T01:57:21.751Z"
+		},
+		"arrival": {
+			"airportName": "VLI, Semyazino",
+			"date": "2022-08-07T14:57:36.324Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 7510,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/aeroflot-logo.png"
+	},
+	{
+		"id": 23,
+		"departure": {
+			"airportName": "KRO, Kurgan",
+			"date": "2022-08-06T18:31:02.967Z"
+		},
+		"arrival": {
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-06T20:09:52.130Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 4749,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/turkish-airlines-logo.png"
+	},
+	{
+		"id": 24,
+		"departure": {
+			"airportName": "KRO, Kurgan",
+			"date": "2022-08-06T18:18:48.729Z"
+		},
+		"arrival": {
+			"airportName": "OVS, Sovetsky",
+			"date": "2022-08-07T16:24:22.174Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 2724,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/s7-airlines-logo.png"
+	},
+	{
+		"id": 25,
+		"departure": {
+			"airportName": "VLI, Semyazino",
+			"date": "2022-08-06T14:16:58.192Z"
+		},
+		"arrival": {
+			"airportName": "KRO, Kurgan",
+			"date": "2022-08-06T18:11:54.674Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 6437,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
+	},
+	{
+		"id": 26,
+		"departure": {
+			"airportName": "KLF, Kaluga",
+			"date": "2022-08-07T02:59:15.322Z"
+		},
+		"arrival": {
+			"airportName": "EZV, Beryozovo",
+			"date": "2022-08-07T05:49:32.107Z"
+		},
+		"transfers": [
+			{
+				"id": 2,
+				"airportName": "KLF, Kaluga",
+				"date": "2022-08-07T05:36:11.367Z"
+			}
+		],
+		"price": {
+			"amount": 8295,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/emirates-logo.png"
+	},
+	{
+		"id": 27,
+		"departure": {
+			"airportName": "VOZ, Voronezh",
+			"date": "2022-08-07T02:01:27.176Z"
+		},
+		"arrival": {
+			"airportName": "AAQ, Vityazevo",
+			"date": "2022-08-07T16:27:23.381Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 11986,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/spirit-airlines-logo.png"
+	},
+	{
+		"id": 28,
+		"departure": {
+			"airportName": "VKO, Vnukovo",
+			"date": "2022-08-06T16:47:54.793Z"
+		},
+		"arrival": {
+			"airportName": "KZN, Kazan",
+			"date": "2022-08-06T20:51:34.546Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 4726,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/turkish-airlines-logo.png"
+	},
+	{
+		"id": 29,
+		"departure": {
+			"airportName": "AER, Sochi",
+			"date": "2022-08-07T04:35:51.134Z"
+		},
+		"arrival": {
+			"airportName": "PEZ, Penza",
+			"date": "2022-08-08T00:33:54.764Z"
+		},
+		"transfers": [],
+		"price": {
+			"amount": 2402,
+			"currency": "RUB"
+		},
+		"imageUrl": "/static/images/qatar-airways-logo.png"
 	}
 ]
