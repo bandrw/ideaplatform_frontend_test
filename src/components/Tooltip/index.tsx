@@ -1,4 +1,4 @@
-import MUITooltip, {TooltipProps} from '@mui/material/Tooltip';
+import {Tooltip as MUITooltip, TooltipProps} from '@mui/material';
 import {makeStyles} from '@mui/styles';
 import React from 'react';
 

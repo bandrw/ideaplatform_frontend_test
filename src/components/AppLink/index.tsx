@@ -1,4 +1,4 @@
-import Link, {LinkProps} from '@mui/material/Link';
+import {Link, LinkProps} from '@mui/material';
 import React from 'react';
 
 interface AppLinkProps extends LinkProps {

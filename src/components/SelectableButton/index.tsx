@@ -1,7 +1,7 @@
 import Button from '@components/Button';
 import Grid from '@components/Grid';
 import CheckIcon from '@mui/icons-material/Check';
-import {ButtonProps} from '@mui/material/Button';
+import {ButtonProps} from '@mui/material';
 import React from 'react';
 
 interface SelectableButtonProps extends ButtonProps {

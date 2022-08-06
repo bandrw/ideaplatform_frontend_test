@@ -6,12 +6,12 @@ import Grid from '@components/Grid';
 import trim from '@shared/lib/utils/trim';
 import React from 'react';
 
-import {AirplaneTicket} from '../../model/types';
+import {AirplaneTicket as AirplaneTicketType} from '../../model/types';
 import AirplaneTicketTime from '../airplane-ticket-time';
 import AirplaneTicketTransfers from '../airplane-ticket-transfers';
 
 interface AirplaneTicketProps {
-	ticket: AirplaneTicket;
+	ticket: AirplaneTicketType;
 }
 
 const cnAirplaneTicket = cn('AirplaneTicket');

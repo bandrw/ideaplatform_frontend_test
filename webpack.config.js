@@ -8,11 +8,22 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
 	mode: isProduction ? 'production' : 'development',
-	entry: './src/index.tsx',
+	entry: ['core-js/stable', './src/index.tsx'],
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: '[name].[contenthash].js',
 		clean: true,
+		environment: {
+			arrowFunction: false,
+			bigIntLiteral: false,
+			const: false,
+			destructuring: false,
+			dynamicImport: false,
+			forOf: false,
+			module: false,
+			optionalChaining: false,
+			templateLiteral: false,
+		},
 	},
 	devtool: 'source-map',
 	devServer: {
@@ -29,8 +40,8 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(ts|tsx)$/,
-				use: 'ts-loader',
+				test: /\.(ts|js)x?$/,
+				loader: 'babel-loader',
 				exclude: /node_modules/,
 			},
 			{

@@ -6,7 +6,7 @@ import Grid from '@components/Grid';
 import Tooltip from '@components/Tooltip';
 import {TransferPoint} from '@features/airplane-tickets/model/types';
 import FlightIcon from '@mui/icons-material/Flight';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
+import {ClickAwayListener} from '@mui/material';
 import React, {useState} from 'react';
 import Moment from 'react-moment';
 

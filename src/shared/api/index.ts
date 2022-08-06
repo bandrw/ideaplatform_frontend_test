@@ -45,7 +45,7 @@ class Api {
 				);
 			} else {
 				ticketsRes = ticketsRes.filter((ticket) =>
-					options.transferFilters.some((key) =>
+					options.transferFilters?.some((key) =>
 						getAirplaneTicketsHandler[key](ticket)
 					)
 				);
@@ -56,8 +56,9 @@ class Api {
 			ticketsRes = ticketsRes.map((ticket) => ({
 				...ticket,
 				price: {
-					amount: ticket.price.amount / currencyConverter[options.currency],
-					currency: options.currency,
+					amount:
+						ticket.price.amount / currencyConverter[options.currency || 'RUB'],
+					currency: options.currency || 'RUB',
 				},
 			}));
 		}
