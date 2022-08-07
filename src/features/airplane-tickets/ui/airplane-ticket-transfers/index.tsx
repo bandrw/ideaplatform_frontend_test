@@ -24,38 +24,38 @@ const TransfersInfo: React.FC<TransfersInfoProps> = ({transfers}) => {
 	return (
 		<div className={cnAirplaneTicketTransfers('LabelContainer')}>
 			{transfers.length !== 0 && (
-				<ClickAwayListener onClickAway={closeTooltip}>
-					<div>
-						<Tooltip
-							popup={
-								<Grid container gap={1} padding={2} flexDirection="column">
-									{transfers.map((transfer) => (
-										<Grid
-											item
-											key={transfer.id}
-											className={cnAirplaneTicketTransfers('TransferInfo')}
-										>
-											<Moment date={transfer.date} format="MMMM, DD HH:MM" />
-											{' — '}
-											{transfer.airportName}
-										</Grid>
-									))}
-								</Grid>
-							}
-							isOpened={isTooltipOpened}
-						>
-							<Button
-								onClick={() => setIsTooltipOpened(true)}
-								className={cnAirplaneTicketTransfers('Label')}
-								view="pseudo"
-							>
-								{transfers.length === 1
-									? '1 transfer'
-									: `${transfers.length} transfers`}
-							</Button>
-						</Tooltip>
-					</div>
-				</ClickAwayListener>
+				<Tooltip
+					popup={
+						<ClickAwayListener onClickAway={closeTooltip}>
+							<Grid container gap={1} padding={2} flexDirection="column">
+								{transfers.map((transfer) => (
+									<Grid
+										item
+										key={transfer.id}
+										className={cnAirplaneTicketTransfers('TransferInfo')}
+									>
+										<Moment date={transfer.date} format="MMMM, DD HH:MM" />
+										{' — '}
+										{transfer.airportName}
+									</Grid>
+								))}
+							</Grid>
+						</ClickAwayListener>
+					}
+					isOpened={isTooltipOpened}
+				>
+					<Button
+						onClick={() => setIsTooltipOpened(true)}
+						className={cnAirplaneTicketTransfers('Label')}
+						// @ts-ignore
+						style={{'--button-text-color': 'var(--color-gray)'}}
+						view="pseudo"
+					>
+						{transfers.length === 1
+							? '1 transfer'
+							: `${transfers.length} transfers`}
+					</Button>
+				</Tooltip>
 			)}
 		</div>
 	);

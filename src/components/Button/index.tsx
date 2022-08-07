@@ -17,6 +17,7 @@ export interface ButtonProps extends React.PropsWithChildren {
 	width?: React.CSSProperties['width'];
 	minWidth?: React.CSSProperties['minWidth'];
 	textAlign?: 'left' | 'center' | 'right';
+	style?: React.CSSProperties;
 }
 
 const cnButton = cn('Button');
@@ -36,12 +37,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			width,
 			minWidth,
 			textAlign = 'center',
+			style,
 		},
 		ref
 	) => {
 		return (
 			<button
-				style={{width, minWidth}}
+				style={{width, minWidth, ...style}}
 				ref={ref}
 				disabled={disabled}
 				className={[

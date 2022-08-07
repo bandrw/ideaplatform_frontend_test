@@ -18,7 +18,7 @@ const Page: React.FC<PageProps> = ({children, title}) => {
 			<Grid item>
 				<Header />
 			</Grid>
-			<Grid item height="calc(100vh - 80px - 40px)" overflow="scroll">
+			<Grid item minHeight="calc(100vh - 80px - 40px)">
 				{children}
 			</Grid>
 			<Grid item>

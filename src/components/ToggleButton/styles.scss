@@ -1,10 +1,13 @@
 .ToggleButton {
 	&_toggled {
-		background: var(--color-light-yellow);
+		--button-text-color: #fff;
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
 
 		&:not([disabled]) {
 			&:hover {
-				background: rgba(255,219,77,0.35);
+				background-color: var(--color-primary-dark);
+				border-color: var(--color-primary-dark);
 			}
 		}
 	}

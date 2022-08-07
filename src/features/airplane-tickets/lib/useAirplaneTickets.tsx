@@ -1,5 +1,5 @@
 import {api} from '@shared/api';
-import {useQuery} from '@shared/lib/useQuery';
+import {useQuery} from '@shared/lib/hooks/useQuery';
 import {useCallback, useState} from 'react';
 
 import {Currency, TransferOptionKey} from '../model/types';

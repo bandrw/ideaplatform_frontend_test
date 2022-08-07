@@ -44,7 +44,7 @@ const AirplaneTickets: React.FC = () => {
 					container
 					flexDirection="column"
 					gap={4}
-					minWidth={750}
+					minWidth={798}
 					justifyContent="center"
 					alignItems="center"
 					height="100%"

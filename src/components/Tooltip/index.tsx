@@ -11,36 +11,42 @@ interface TooltipProps extends React.PropsWithChildren {
 	popup: React.ReactNode;
 	direction?: TooltipDirection;
 	isOpened: boolean;
+	gap?: number;
 }
 
 interface PopupProps extends React.PropsWithChildren {
-	offset: Offset;
+	container: Offset;
 	direction?: TooltipDirection;
+	containerRef: React.RefObject<HTMLElement>;
+	gap: number;
 }
 
 const cnPopup = cn('Popup');
 
 const Popup: React.FC<PopupProps> = ({
 	children,
-	offset,
+	container,
 	direction = 'bottom',
+	containerRef,
+	gap,
 }) => {
-	const GAP = 10;
-	const ref = useRef<HTMLDivElement>(null);
+	const popupRef = useRef<HTMLDivElement>(null);
 
-	const popupOffset = useOffset<HTMLDivElement>(ref);
+	const popupOffset = useOffset<HTMLDivElement>(popupRef);
 
 	const getLeft = () => {
-		if (direction === 'bottom') return offset.left + offset.width / 2;
-		if (direction === 'right') return offset.left + offset.width + GAP;
-		if (direction === 'top') return offset.left + offset.width / 2;
+		if (direction === 'bottom') return container.left + container.width / 2;
+		if (direction === 'right') return container.left + container.width + gap;
+		if (direction === 'top') return container.left + container.width / 2;
 		return 0;
 	};
 	const getTop = () => {
-		if (direction === 'bottom') return offset.top + offset.height + GAP;
-		if (direction === 'right') return offset.top + offset.height / 2;
-		if (direction === 'top') return offset.top - popupOffset.height - GAP;
-		return 0;
+		let top = containerRef.current?.offsetTop || 0;
+
+		if (direction === 'bottom') top += container.height + gap;
+		if (direction === 'right') top += container.height / 2;
+		if (direction === 'top') top -= (popupOffset?.height || 0) + gap;
+		return top;
 	};
 
 	const rootContainer = document.getElementById('root');
@@ -48,7 +54,8 @@ const Popup: React.FC<PopupProps> = ({
 
 	return ReactDOM.createPortal(
 		<div
-			ref={ref}
+			ref={popupRef}
+			hidden={popupOffset === null}
 			className={cnPopup({[direction]: true})}
 			style={{left: getLeft(), top: getTop()}}
 		>
@@ -63,6 +70,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	children,
 	direction = 'bottom',
 	isOpened,
+	gap = 10,
 }) => {
 	const ref = useRef<HTMLDivElement>(null);
 
@@ -71,8 +79,13 @@ const Tooltip: React.FC<TooltipProps> = ({
 	return (
 		<>
 			<div ref={ref}>{children}</div>
-			{isOpened && (
-				<Popup offset={offset} direction={direction}>
+			{isOpened && offset && (
+				<Popup
+					container={offset}
+					direction={direction}
+					containerRef={ref}
+					gap={gap}
+				>
 					{popup}
 				</Popup>
 			)}

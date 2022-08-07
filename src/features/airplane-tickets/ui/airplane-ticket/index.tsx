@@ -18,7 +18,7 @@ const cnAirplaneTicket = cn('AirplaneTicket');
 
 const AirplaneTicket: React.FC<AirplaneTicketProps> = ({ticket}) => {
 	return (
-		<Grid container className={cnAirplaneTicket()} gap={2} flexWrap="nowrap">
+		<Grid container className={cnAirplaneTicket()} gap={4} flexWrap="nowrap">
 			<Grid item className={cnAirplaneTicket('BuySection')}>
 				<Grid container flexDirection="column" gap={2}>
 					<Grid item>

@@ -22,7 +22,7 @@ const getAirplaneTicketsHandler: {
 	'3-transfers': (ticket) => ticket.transfers.length === 3,
 };
 
-const currencyConverter = {
+const currencyConverter: {[K in Currency]: number} = {
 	RUB: 1,
 	USD: 62,
 	EUR: 63,
@@ -55,11 +55,14 @@ class Api {
 		if (options?.currency !== undefined) {
 			ticketsRes = ticketsRes.map((ticket) => ({
 				...ticket,
-				price: {
-					amount:
-						ticket.price.amount / currencyConverter[options.currency || 'RUB'],
-					currency: options.currency || 'RUB',
-				},
+				price:
+					options.currency !== undefined
+						? {
+								amount:
+									ticket.price.amount / currencyConverter[options.currency],
+								currency: options.currency,
+						  }
+						: ticket.price,
 			}));
 		}
 

@@ -1,4 +1,6 @@
 .Button {
+	--button-text-color: #000;
+
 	$borderRadius: 5px;
 
 	position: relative;
@@ -25,9 +27,11 @@
 
 	&_pin-left {
 		border-radius: $borderRadius 0 0 $borderRadius;
+		left: 1px;
 	}
 	&_pin-right {
 		border-radius: 0 $borderRadius $borderRadius 0;
+		right: 1px;
 	}
 	&_pin-center {
 		border-radius: 0;
@@ -47,7 +51,7 @@
 
 	&_view_action {
 		background-color: var(--color-action);
-		color: var(--color-white);
+		--button-text-color: var(--color-white);
 		border: none;
 	}
 
@@ -59,7 +63,6 @@
 
 	&_view_pseudo {
 		border: none;
-		color: var(--color-gray);
 	}
 
 	&_withRightIcon {
@@ -70,6 +73,7 @@
 	}
 
 	&-Text {
+		color: var(--button-text-color);
 	}
 
 	&-RightIcon {
