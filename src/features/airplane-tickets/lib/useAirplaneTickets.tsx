@@ -1,5 +1,5 @@
 import {api} from '@shared/api';
-import {useQuery} from '@tanstack/react-query';
+import {useQuery} from '@shared/lib/useQuery';
 import {useCallback, useState} from 'react';
 
 import {Currency, TransferOptionKey} from '../model/types';
@@ -57,14 +57,16 @@ export const useAirplaneTickets = () => {
 		});
 	}, []);
 
-	const {data, isLoading, isError} = useQuery(
-		['airplaneTickets', selectedTransferFilters, selectedCurrency],
+	const fetcher = useCallback(
 		() =>
 			api.getAirplaneTickets({
 				transferFilters: selectedTransferFilters,
 				currency: selectedCurrency,
-			})
+			}),
+		[selectedCurrency, selectedTransferFilters]
 	);
+
+	const {data, isLoading, isError} = useQuery(fetcher);
 
 	return {
 		selectedTransferFilters,

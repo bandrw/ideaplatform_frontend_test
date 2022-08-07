@@ -3,7 +3,7 @@ import './styles.scss';
 import {cn} from '@bem-react/classname';
 import Button from '@components/Button';
 import Grid from '@components/Grid';
-import trim from '@shared/lib/utils/trim';
+import Image from '@components/Image';
 import React from 'react';
 
 import {AirplaneTicket as AirplaneTicketType} from '../../model/types';
@@ -20,28 +20,17 @@ const AirplaneTicket: React.FC<AirplaneTicketProps> = ({ticket}) => {
 	return (
 		<Grid container className={cnAirplaneTicket()} gap={2} flexWrap="nowrap">
 			<Grid item className={cnAirplaneTicket('BuySection')}>
-				<Grid container direction="column" gap={2}>
+				<Grid container flexDirection="column" gap={2}>
 					<Grid item>
-						<div
-							className={cnAirplaneTicket('BuySection-Image')}
-							style={{
-								backgroundImage: `url("${trim(window.location.href, '/')}${
-									ticket.imageUrl
-								}")`,
-							}}
+						<Image
+							src={ticket.imageUrl}
+							width={200}
+							height={50}
+							backgroundSize="70%"
 						/>
 					</Grid>
 					<Grid item>
-						<Button
-							fullWidth
-							variant="contained"
-							sx={{
-								backgroundColor: 'var(--color-action)',
-								'&:hover': {
-									backgroundColor: 'var(--color-action-dark)',
-								},
-							}}
-						>
+						<Button width="100%" view="action">
 							Buy
 							<br />
 							for {Math.floor(ticket.price.amount)} {ticket.price.currency}

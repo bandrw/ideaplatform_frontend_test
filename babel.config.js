@@ -8,6 +8,7 @@ module.exports = function (api) {
 				modules: 'commonjs',
 				corejs: {version: '3.24'},
 				useBuiltIns: 'usage',
+				forceAllTransforms: true,
 			},
 		],
 		['@babel/preset-typescript'],

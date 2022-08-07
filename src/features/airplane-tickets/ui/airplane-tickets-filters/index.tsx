@@ -4,7 +4,6 @@ import {cn} from '@bem-react/classname';
 import Grid from '@components/Grid';
 import SelectableButton from '@components/SelectableButton';
 import ToggleButton from '@components/ToggleButton';
-import {ToggleButtonGroup} from '@mui/material';
 import React from 'react';
 
 import {currencies, transferOptions} from '../../lib/useAirplaneTickets';
@@ -32,36 +31,40 @@ const AirplaneTicketsFilters: React.FC<AirplaneTicketsFiltersProps> = ({
 			className={cnAirplaneTicketsFilters()}
 			flexDirection="column"
 			gap={3}
-			width={250}
 		>
 			<FilterSection title="Currency">
-				<ToggleButtonGroup
-					color="primary"
-					exclusive
-					value={selectedCurrency}
-					fullWidth
-				>
-					{currencies.map((currency) => (
+				<Grid container flexWrap="nowrap">
+					{currencies.map((currency, i) => (
 						<ToggleButton
 							key={currency}
-							value={currency}
+							width="fit-content"
+							minWidth="auto"
+							toggled={currency === selectedCurrency}
 							onClick={() => onCurrencyChange(currency)}
+							pin={
+								i === 0
+									? 'left'
+									: i === currencies.length - 1
+									? 'right'
+									: 'center'
+							}
 						>
 							{currency}
 						</ToggleButton>
 					))}
-				</ToggleButtonGroup>
+				</Grid>
 			</FilterSection>
 			<FilterSection title="Transfers">
-				<Grid container direction="column">
+				<Grid container flexDirection="column">
 					{transferOptions.map((option) => (
 						<Grid key={option.key} item>
 							<SelectableButton
+								view="pseudo"
+								textAlign="left"
 								selected={selectedTransferFilters.some(
 									(opt) => opt === option.key
 								)}
-								fullWidth
-								sx={{textTransform: 'none', color: '#000', fontWeight: 400}}
+								width="100%"
 								onClick={() => onTransferFiltersChange(option.key)}
 							>
 								{option.name}

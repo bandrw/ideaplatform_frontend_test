@@ -2,12 +2,12 @@ import './styles.scss';
 
 import {cn} from '@bem-react/classname';
 import Button from '@components/Button';
+import ClickAwayListener from '@components/ClickAwayListener';
 import Grid from '@components/Grid';
+import Image from '@components/Image';
 import Tooltip from '@components/Tooltip';
 import {TransferPoint} from '@features/airplane-tickets/model/types';
-import FlightIcon from '@mui/icons-material/Flight';
-import {ClickAwayListener} from '@mui/material';
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import Moment from 'react-moment';
 
 const cnAirplaneTicketTransfers = cn('AirplaneTicketTransfers');
@@ -19,17 +19,16 @@ interface TransfersInfoProps {
 const TransfersInfo: React.FC<TransfersInfoProps> = ({transfers}) => {
 	const [isTooltipOpened, setIsTooltipOpened] = useState(false);
 
+	const closeTooltip = useCallback(() => setIsTooltipOpened(false), []);
+
 	return (
 		<div className={cnAirplaneTicketTransfers('LabelContainer')}>
 			{transfers.length !== 0 && (
-				<ClickAwayListener onClickAway={() => setIsTooltipOpened(false)}>
+				<ClickAwayListener onClickAway={closeTooltip}>
 					<div>
 						<Tooltip
-							PopperProps={{
-								disablePortal: true,
-							}}
-							title={
-								<Grid container gap={1} padding={1} direction="column">
+							popup={
+								<Grid container gap={1} padding={2} flexDirection="column">
 									{transfers.map((transfer) => (
 										<Grid
 											item
@@ -43,21 +42,12 @@ const TransfersInfo: React.FC<TransfersInfoProps> = ({transfers}) => {
 									))}
 								</Grid>
 							}
-							open={isTooltipOpened}
-							onClose={() => setIsTooltipOpened(false)}
-							disableHoverListener
-							disableTouchListener
-							disableFocusListener
+							isOpened={isTooltipOpened}
 						>
 							<Button
 								onClick={() => setIsTooltipOpened(true)}
 								className={cnAirplaneTicketTransfers('Label')}
-								sx={{
-									fontWeight: 400,
-									padding: '5px 10px',
-									color: 'var(--color-gray)',
-									textTransform: 'capitalize',
-								}}
+								view="pseudo"
 							>
 								{transfers.length === 1
 									? '1 transfer'
@@ -83,7 +73,12 @@ const AirplaneTicketTransfers: React.FC<AirplaneTicketTransfersProps> = ({
 			<TransfersInfo transfers={transfers} />
 			<div className={cnAirplaneTicketTransfers('Logo')}>
 				<div className={cnAirplaneTicketTransfers('Logo-Line')} />
-				<FlightIcon className={cnAirplaneTicketTransfers('Logo-Plane')} />
+				<Image
+					className={cnAirplaneTicketTransfers('Logo-Plane')}
+					src="/static/icons/flight.svg"
+					width={22}
+					height={22}
+				/>
 			</div>
 		</div>
 	);

@@ -6,7 +6,6 @@ import Spin from '@components/Spin';
 import {useAirplaneTickets} from '@features/airplane-tickets/lib/useAirplaneTickets';
 import AirplaneTicket from '@features/airplane-tickets/ui/airplane-ticket';
 import AirplaneTicketsFilters from '@features/airplane-tickets/ui/airplane-tickets-filters';
-import ErrorIcon from '@mui/icons-material/Error';
 import React from 'react';
 
 const cnAirplaneTickets = cn('AirplaneTickets');
@@ -43,9 +42,9 @@ const AirplaneTickets: React.FC = () => {
 			<Grid item>
 				<Grid
 					container
-					direction="column"
+					flexDirection="column"
 					gap={4}
-					minWidth={800}
+					minWidth={750}
 					justifyContent="center"
 					alignItems="center"
 					height="100%"
@@ -58,16 +57,7 @@ const AirplaneTickets: React.FC = () => {
 								alignItems="center"
 								gap={1}
 							>
-								{isLoading ? (
-									<Spin />
-								) : isError ? (
-									<>
-										<ErrorIcon />
-										Error
-									</>
-								) : (
-									'No tickets'
-								)}
+								{isLoading ? <Spin /> : isError ? 'Error' : 'No tickets'}
 							</Grid>
 						</Grid>
 					) : (

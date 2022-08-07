@@ -1,9 +1,9 @@
 import './styles.scss';
 
 import {cn} from '@bem-react/classname';
-import AppLink from '@components/AppLink';
+import ExternalLink from '@components/ExternalLink';
 import Grid from '@components/Grid';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import Image from '@components/Image';
 import React from 'react';
 
 const cnFooter = cn('Footer');
@@ -21,16 +21,13 @@ const Footer: React.FC = () => {
 		>
 			<Grid item>
 				<Grid container alignItems="center">
-					<GitHubIcon />
+					<Image src="/static/icons/github.svg" width={24} height={24} />
 				</Grid>
 			</Grid>
 			<Grid item>
-				<AppLink
-					external
-					href="https://github.com/bandrw/ideaplatform_frontend_test"
-				>
+				<ExternalLink href="https://github.com/bandrw/ideaplatform_frontend_test">
 					github.com/bandrw/ideaplatform_frontend_test
-				</AppLink>
+				</ExternalLink>
 			</Grid>
 		</Grid>
 	);

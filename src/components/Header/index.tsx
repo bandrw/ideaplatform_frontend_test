@@ -2,7 +2,7 @@ import './styles.scss';
 
 import {cn} from '@bem-react/classname';
 import Grid from '@components/Grid';
-import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
+import Image from '@components/Image';
 import React from 'react';
 
 const cnHeader = cn('Header');
@@ -16,15 +16,10 @@ const Header: React.FC = () => {
 			justifyContent="center"
 			alignItems="center"
 			className={cnHeader()}
-			gap={1}
+			gap={1.5}
 		>
 			<Grid item>
-				<AirplaneTicketIcon
-					style={{
-						fontSize: '2rem',
-						marginTop: 6,
-					}}
-				/>
+				<Image src="/static/icons/flight-ticket.svg" width={40} height={40} />
 			</Grid>
 			<Grid item>
 				<h1>Tickets</h1>

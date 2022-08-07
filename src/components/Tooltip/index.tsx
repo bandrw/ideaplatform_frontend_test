@@ -1,24 +1,82 @@
-import {Tooltip as MUITooltip, TooltipProps} from '@mui/material';
-import {makeStyles} from '@mui/styles';
-import React from 'react';
+import './styles.scss';
 
-const useClasses = makeStyles(() => ({
-	tooltip: {
-		backgroundColor: '#fff',
-		borderRadius: 5,
-		color: '#000',
-		boxShadow: 'rgba(0, 0, 0, 0.3) 0 2px 15px',
-		fontWeight: 'normal',
-	},
-}));
+import {cn} from '@bem-react/classname';
+import {Offset, useOffset} from '@shared/lib/hooks/useOffset';
+import React, {useRef} from 'react';
+import ReactDOM from 'react-dom';
 
-const Tooltip: React.FC<TooltipProps> = ({children, ...props}) => {
-	const classes = useClasses();
+export type TooltipDirection = 'right' | 'bottom' | 'top';
+
+interface TooltipProps extends React.PropsWithChildren {
+	popup: React.ReactNode;
+	direction?: TooltipDirection;
+	isOpened: boolean;
+}
+
+interface PopupProps extends React.PropsWithChildren {
+	offset: Offset;
+	direction?: TooltipDirection;
+}
+
+const cnPopup = cn('Popup');
+
+const Popup: React.FC<PopupProps> = ({
+	children,
+	offset,
+	direction = 'bottom',
+}) => {
+	const GAP = 10;
+	const ref = useRef<HTMLDivElement>(null);
+
+	const popupOffset = useOffset<HTMLDivElement>(ref);
+
+	const getLeft = () => {
+		if (direction === 'bottom') return offset.left + offset.width / 2;
+		if (direction === 'right') return offset.left + offset.width + GAP;
+		if (direction === 'top') return offset.left + offset.width / 2;
+		return 0;
+	};
+	const getTop = () => {
+		if (direction === 'bottom') return offset.top + offset.height + GAP;
+		if (direction === 'right') return offset.top + offset.height / 2;
+		if (direction === 'top') return offset.top - popupOffset.height - GAP;
+		return 0;
+	};
+
+	const rootContainer = document.getElementById('root');
+	if (rootContainer === null) throw new Error("Can't locate root");
+
+	return ReactDOM.createPortal(
+		<div
+			ref={ref}
+			className={cnPopup({[direction]: true})}
+			style={{left: getLeft(), top: getTop()}}
+		>
+			{children}
+		</div>,
+		rootContainer
+	);
+};
+
+const Tooltip: React.FC<TooltipProps> = ({
+	popup,
+	children,
+	direction = 'bottom',
+	isOpened,
+}) => {
+	const ref = useRef<HTMLDivElement>(null);
+
+	const offset = useOffset<HTMLDivElement>(ref);
 
 	return (
-		<MUITooltip classes={classes} {...props}>
-			{children}
-		</MUITooltip>
+		<>
+			<div ref={ref}>{children}</div>
+			{isOpened && (
+				<Popup offset={offset} direction={direction}>
+					{popup}
+				</Popup>
+			)}
+		</>
 	);
 };
 

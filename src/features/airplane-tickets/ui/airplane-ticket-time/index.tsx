@@ -21,7 +21,7 @@ const AirplaneTicketTime: React.FC<AirplaneTicketTimeProps> = ({
 	return (
 		<Grid
 			container
-			direction="column"
+			flexDirection="column"
 			className={cnAirplaneTicketTime({align})}
 			gap={1}
 		>

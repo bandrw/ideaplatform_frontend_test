@@ -14,7 +14,7 @@ const Page: React.FC<PageProps> = ({children, title}) => {
 	}, [title]);
 
 	return (
-		<Grid container direction="column">
+		<Grid container flexDirection="column">
 			<Grid item>
 				<Header />
 			</Grid>
