@@ -12,6 +12,8 @@ COPY package.json ./
 COPY yarn.lock ./
 COPY tsconfig.json ./
 COPY webpack.config.js ./
+COPY babel.config.js ./
+COPY .browserslistrc ./
 
 RUN yarn install --pure-lockfile
 
